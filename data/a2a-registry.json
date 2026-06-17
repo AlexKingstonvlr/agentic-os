@@ -1,0 +1,90 @@
+{
+  "local": {
+    "antigravity": {
+      "name": "Antigravity",
+      "description": "Custom automation and research agent for ambitious multi-step missions.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "research",
+        "code-review"
+      ],
+      "skills": [
+        "research",
+        "coding"
+      ]
+    },
+    "claude": {
+      "name": "Claude",
+      "description": "General reasoning, planning, writing, and coding assistant.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "code-review",
+        "research"
+      ],
+      "skills": [
+        "coding",
+        "research"
+      ]
+    },
+    "codex": {
+      "name": "Codex",
+      "description": "Code-focused agent for implementation, tests, refactors, and repository work.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "code-review"
+      ],
+      "skills": [
+        "coding"
+      ]
+    },
+    "free-claude-code": {
+      "name": "Free Claude Code",
+      "description": "Low-cost Claude Code-style coding agent using free OpenRouter models.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "code-review"
+      ],
+      "skills": [
+        "coding"
+      ]
+    },
+    "gemini": {
+      "name": "Gemini",
+      "description": "Long-context research, synthesis, and multimodal-style planning agent.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "research"
+      ],
+      "skills": [
+        "research",
+        "ui-ux"
+      ]
+    },
+    "hermes": {
+      "name": "Hermes",
+      "description": "Nous Research style agent with sessions, skills, memory, and long-horizon goals.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "research",
+        "code-review"
+      ],
+      "skills": [
+        "research",
+        "coding"
+      ]
+    },
+    "openclaw": {
+      "name": "OpenClaw",
+      "description": "OpenClaw-compatible agent profile for Claude-like workflows.",
+      "url": "http://localhost:3000",
+      "capabilities": [
+        "code-review"
+      ],
+      "skills": [
+        "coding",
+        "ui-ux"
+      ]
+    }
+  },
+  "remote": {}
+}

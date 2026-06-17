@@ -62,3 +62,46 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to read memory' }, { status: 500 });
   }
 }
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { agentId, content, path: filePath } = body as {
+      agentId?: string;
+      content: string;
+      path?: string;
+    };
+    if (!content) {
+      return NextResponse.json({ error: 'content is required' }, { status: 400 });
+    }
+    const memoryDir = resolveProjectPath('memory');
+    const fileName = filePath ?? `${agentId ?? 'general'}-${Date.now()}.md`;
+    const resolved = path.resolve(memoryDir, fileName);
+    if (!resolved.startsWith(memoryDir)) {
+      return NextResponse.json({ error: 'Invalid path' }, { status: 400 });
+    }
+    await fs.mkdir(memoryDir, { recursive: true });
+    await fs.writeFile(resolved, content, 'utf-8');
+    return NextResponse.json({ success: true, path: fileName });
+  } catch {
+    return NextResponse.json({ error: 'Failed to store memory' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const filePath = request.nextUrl.searchParams.get('path');
+    if (!filePath) {
+      return NextResponse.json({ error: 'path query parameter required' }, { status: 400 });
+    }
+    const memoryDir = resolveProjectPath('memory');
+    const resolved = path.resolve(memoryDir, filePath);
+    if (!resolved.startsWith(memoryDir)) {
+      return NextResponse.json({ error: 'Invalid path' }, { status: 400 });
+    }
+    await fs.unlink(resolved);
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: 'Failed to delete memory' }, { status: 500 });
+  }
+}
