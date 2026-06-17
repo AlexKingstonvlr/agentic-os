@@ -107,18 +107,30 @@ export function AgentSidebar({
                 <span>{agent.name}</span>
               </button>
               {selectedAgentId === agent.id && (
-                <button
-                  onClick={() => {
-                    router.push(`/agents/${agent.id}/goal`);
-                    setOpen(false);
-                  }}
-                  className={`ml-9 flex w-[calc(100%-2.25rem)] items-center gap-2 rounded-xl px-3 py-1.5 text-left text-xs ${
-                    isGoalPage ? 'bg-cyan-400/10 text-cyan-200' : 'text-zinc-400 hover:bg-white/5'
-                  }`}
-                >
-                  <span>🎯</span>
-                  Goal Mode
-                </button>
+                <>
+                  <button
+                    onClick={() => {
+                      router.push(`/agents/${agent.id}/goal`);
+                      setOpen(false);
+                    }}
+                    className={`ml-9 flex w-[calc(100%-2.25rem)] items-center gap-2 rounded-xl px-3 py-1.5 text-left text-xs ${
+                      isGoalPage ? 'bg-cyan-400/10 text-cyan-200' : 'text-zinc-400 hover:bg-white/5'
+                    }`}
+                  >
+                    <span>🎯</span>
+                    Goal Mode
+                  </button>
+                  <Link
+                    href={`/agents/${agent.id}/approvals`}
+                    onClick={() => setOpen(false)}
+                    className={`ml-9 flex w-[calc(100%-2.25rem)] items-center gap-2 rounded-xl px-3 py-1.5 text-left text-xs ${
+                      pathname.endsWith('/approvals') ? 'bg-cyan-400/10 text-cyan-200' : 'text-zinc-400 hover:bg-white/5'
+                    }`}
+                  >
+                    <span>⏸️</span>
+                    Approvals
+                  </Link>
+                </>
               )}
             </div>
           ))}

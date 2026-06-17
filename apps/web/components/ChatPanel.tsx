@@ -64,7 +64,7 @@ export function ChatPanel({ agent }: { agent: AgentProfile }) {
         ) : (
           <div className="space-y-4">
             {messages.map((item, index) => (
-              <div key={index} className={`rounded-2xl p-4 text-sm leading-6 ${item.role === 'user' ? 'bg-cyan-400/10 text-cyan-50' : 'bg-white/5 text-zinc-300'}`}>
+              <div key={index} className={`rounded-2xl p-4 text-sm leading-6 max-sm:w-full ${item.role === 'user' ? 'bg-cyan-400/10 text-cyan-50' : 'bg-white/5 text-zinc-300'}`}>
                 <p className="mb-1 text-xs uppercase tracking-[0.2em] text-zinc-500">{item.role}</p>
                 <p className="whitespace-pre-wrap">{item.content}</p>
               </div>
@@ -80,11 +80,12 @@ export function ChatPanel({ agent }: { agent: AgentProfile }) {
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             placeholder={`Message ${agent.name}... (Ctrl+K to focus)`}
-            className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-cyan-300/60"
+            inputMode="text"
+            className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-cyan-300/60 max-sm:w-full"
           />
           <button
             disabled={loading}
-            className="rounded-2xl bg-cyan-300 px-5 py-3 text-sm font-medium text-black disabled:opacity-50"
+            className="rounded-2xl bg-cyan-300 px-5 py-3 text-sm font-medium text-black disabled:opacity-50 max-sm:min-h-[44px]"
           >
             {loading ? 'Thinking' : 'Send'}
           </button>

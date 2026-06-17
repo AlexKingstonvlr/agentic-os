@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import EmptyState from '@/components/EmptyState';
 
 interface Skill {
@@ -30,7 +31,15 @@ export default function SkillsPage() {
 
   return (
     <main className="min-h-screen p-4 md:p-6">
-      <h1 className="text-2xl font-semibold text-white mb-6">Skills</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-semibold text-white">Skills</h1>
+        <Link
+          href="/marketplace"
+          className="rounded-xl bg-cyan-300 px-4 py-2 text-sm font-medium text-black hover:bg-cyan-200 transition-colors"
+        >
+          Marketplace
+        </Link>
+      </div>
       {skills.length === 0 ? (
         <EmptyState
           icon="⚙"

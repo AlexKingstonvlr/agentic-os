@@ -69,3 +69,12 @@ export async function listRecentEvents(limit = 50): Promise<EventRecord[]> {
   const db = await load();
   return db.events.slice(-limit).reverse();
 }
+
+export async function getReplayActions(sessionId: string) {
+  const events = await getEvents(sessionId);
+  return events.map(e => ({
+    type: e.type,
+    payload: JSON.parse(e.payload_json),
+    timestamp: e.created_at,
+  }));
+}
