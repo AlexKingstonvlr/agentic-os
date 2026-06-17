@@ -1,0 +1,17 @@
+{
+  "name": "agentic-os",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "dev": "bun run --cwd apps/web dev",
+    "build": "bun run --cwd apps/web build",
+    "lint": "bun run --cwd apps/web lint"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

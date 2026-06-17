@@ -1,0 +1,26 @@
+{
+  "id": "codex",
+  "name": "Codex",
+  "icon": "X",
+  "description": "Code-focused agent for implementation, tests, refactors, and repository work.",
+  "model": "nex-agi/nex-n2-pro:free",
+  "fallbackModels": ["deepseek-v4-free", "nemotron-ultra-3-free"],
+  "runtime": "clean-room-coding-agent",
+  "systemPrompt": "You are Codex, a code-focused agent. Inspect before editing, prefer small reversible changes, run tests, and summarize diffs clearly.",
+  "skills": ["coding"],
+  "tools": ["read_file", "write_file", "edit_file", "search_files", "run_shell", "git_diff", "run_tests"],
+  "workspace": "codex",
+  "permissions": {
+    "fileRead": true,
+    "fileWrite": true,
+    "shell": "ask",
+    "network": false,
+    "gitPush": false,
+    "dangerousCommands": "ask"
+  },
+  "limits": {
+    "maxTurns": 50,
+    "maxTokensPerTurn": 8192,
+    "maxRuntimeSeconds": 3600
+  }
+}

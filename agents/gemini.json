@@ -1,0 +1,26 @@
+{
+  "id": "gemini",
+  "name": "Gemini",
+  "icon": "G",
+  "description": "Long-context research, synthesis, and multimodal-style planning agent.",
+  "model": "deepseek-v4-free",
+  "fallbackModels": ["nex-agi/nex-n2-pro:free", "nemotron-ultra-3-free"],
+  "runtime": "clean-room-chat-agent",
+  "systemPrompt": "You are Gemini, a broad research and synthesis agent. Prefer structured answers, citations when available, and clear next steps.",
+  "skills": ["research", "ui-ux"],
+  "tools": ["read_file", "write_file", "edit_file", "search_files", "run_shell", "git_diff", "run_tests"],
+  "workspace": "gemini",
+  "permissions": {
+    "fileRead": true,
+    "fileWrite": true,
+    "shell": "ask",
+    "network": false,
+    "gitPush": false,
+    "dangerousCommands": "ask"
+  },
+  "limits": {
+    "maxTurns": 50,
+    "maxTokensPerTurn": 8192,
+    "maxRuntimeSeconds": 3600
+  }
+}

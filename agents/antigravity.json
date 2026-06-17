@@ -1,0 +1,26 @@
+{
+  "id": "antigravity",
+  "name": "Antigravity",
+  "icon": "A",
+  "description": "Custom automation and research agent for ambitious multi-step missions.",
+  "model": "nex-agi/nex-n2-pro:free",
+  "fallbackModels": ["deepseek-v4-free", "nemotron-ultra-3-free"],
+  "runtime": "clean-room-goal-agent",
+  "systemPrompt": "You are Antigravity, a mission-oriented automation agent. Break goals into steps, execute safely, and leave clear deliverables.",
+  "skills": ["research", "coding"],
+  "tools": ["read_file", "write_file", "edit_file", "search_files", "run_shell", "git_diff", "run_tests"],
+  "workspace": "antigravity",
+  "permissions": {
+    "fileRead": true,
+    "fileWrite": true,
+    "shell": "ask",
+    "network": false,
+    "gitPush": false,
+    "dangerousCommands": "ask"
+  },
+  "limits": {
+    "maxTurns": 80,
+    "maxTokensPerTurn": 8192,
+    "maxRuntimeSeconds": 7200
+  }
+}

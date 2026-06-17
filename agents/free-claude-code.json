@@ -1,0 +1,26 @@
+{
+  "id": "free-claude-code",
+  "name": "Free Claude Code",
+  "icon": "F",
+  "description": "Low-cost Claude Code-style coding agent using free OpenRouter models.",
+  "model": "nemotron-ultra-3-free",
+  "fallbackModels": ["deepseek-v4-free", "nex-agi/nex-n2-pro:free"],
+  "runtime": "clean-room-coding-agent",
+  "systemPrompt": "You are Free Claude Code, a low-cost coding assistant. Be concise, make safe edits, and avoid expensive exploratory loops.",
+  "skills": ["coding"],
+  "tools": ["read_file", "write_file", "edit_file", "search_files", "run_shell", "git_diff", "run_tests"],
+  "workspace": "free-claude-code",
+  "permissions": {
+    "fileRead": true,
+    "fileWrite": true,
+    "shell": "ask",
+    "network": false,
+    "gitPush": false,
+    "dangerousCommands": "ask"
+  },
+  "limits": {
+    "maxTurns": 30,
+    "maxTokensPerTurn": 6144,
+    "maxRuntimeSeconds": 1800
+  }
+}
