@@ -18,3 +18,11 @@ apps/web/skills/
 apps/web/data/
 apps/web/memory/
 apps/web/workspaces/
+
+data/a2a-registry.json
+data/a2a-tasks.json
+data/checkpoints.json
+data/mcp-servers.json
+data/usage.json
+data/vector-index.json
+skills/nonexistent/
